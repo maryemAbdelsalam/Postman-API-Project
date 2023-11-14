@@ -1,0 +1,570 @@
+{
+	"info": {
+		"_postman_id": "234a15df-a984-4782-9077-3eedfe3c6548",
+		"name": "Project2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30172271"
+	},
+	"item": [
+		{
+			"name": "Get all customers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check if the response contains id 1\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Anthony Thompson\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains id 2\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Shelley McGlynn\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains id 3\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Jo Collier\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains id 4\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Bobby Franecki\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains id 5\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Ms. Sheila Witting\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code should equal 200\",function(){\r",
+							"    pm.expect(pm.response.code).to.equal(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status should be OK\",function(){\r",
+							"    pm.response.to.be.ok\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}api/v2/customers",
+					"host": [
+						"{{baseURL}}api"
+					],
+					"path": [
+						"v2",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Second Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check if the response contains the name\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Shelley McGlynn\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the email\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Clark.Dickens@gmail.com\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the mobile number\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"446.890.7558 x51411\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the product name\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Handcrafted Soft Tuna\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the amount\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"606.92\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code should equal 200\",function (){\r",
+							"    pm.expect(pm.response.code).to.equal(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status is OK\",function(){\r",
+							"    pm.response.to.be.ok\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}api/v2/customers?city=Columbia",
+					"host": [
+						"{{baseURL}}api"
+					],
+					"path": [
+						"v2",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Columbia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"status code should equal 201\", function(){\r",
+							"    pm.expect(pm.response.code).to.equal(201)\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Maryem Abdelsalam\",\r\n        \"email\": \"Maryem@yahoo.com\",\r\n        \"mobile\": \"01234567890\",\r\n        \"city\": \"Cairo\",\r\n        \"product\": \"Oriental Bronze Ball\",\r\n        \"amount\": \"12\",\r\n        \"id\": \"6\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}api/v2/customers",
+					"host": [
+						"{{baseURL}}api"
+					],
+					"path": [
+						"v2",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Created Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check if the response contains the name\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Maryem Abdelsalam\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the email\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Maryem@yahoo.com\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the mobile\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"01234567890\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the city\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Cairo\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the product\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Oriental Bronze Ball\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the amount\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"12\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check the status code to be 200\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"test status is OK \",function(){\r",
+							"    pm.response.to.be.ok\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}api/v2/customers?id={{id}}",
+					"host": [
+						"{{baseURL}}api"
+					],
+					"path": [
+						"v2",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check the status code to be 200\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"test status is OK \",function(){\r",
+							"    pm.response.to.be.ok\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Maryem Abdelsalam Abdelrahman\",\r\n        \"email\": \"Maryem@yahoo.com\",\r\n        \"mobile\": \"01234567890\",\r\n        \"city\": \"Cairo\",\r\n        \"product\": \"Oriental Bronze Ball\",\r\n        \"amount\": \"12\",\r\n        \"id\": \"6\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}api/v2/customers/{{id}}",
+					"host": [
+						"{{baseURL}}api"
+					],
+					"path": [
+						"v2",
+						"customers",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Updated Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check if the response contains the name\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Maryem Abdelsalam Abdelrahman\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the email\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Maryem@yahoo.com\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the mobile\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"01234567890\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the city\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Cairo\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the product\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Oriental Bronze Ball\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the amount\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"12\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check the status code to be 200\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"test status is OK \",function(){\r",
+							"    pm.response.to.be.ok\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}api/v2/customers?id={{id}}",
+					"host": [
+						"{{baseURL}}api"
+					],
+					"path": [
+						"v2",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Partial Update Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check the status code to be 200\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"test status is OK \",function(){\r",
+							"    pm.response.to.be.ok\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"email\": \"Maryem@gmail.com\",\r\n        \"city\": \"Alexandria\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}api/v2/customers/{{id}}",
+					"host": [
+						"{{baseURL}}api"
+					],
+					"path": [
+						"v2",
+						"customers",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Partially Updated Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check if the response contains the name\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Maryem Abdelsalam Abdelrahman\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the email\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Maryem@gmail.com\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the mobile\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"01234567890\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the city\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Alexandria\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the product\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"Oriental Bronze Ball\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check if the response contains the amount\",function(){\r",
+							"    pm.expect(pm.response.text()).to.include(\"12\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check the status code to be 200\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"test status is OK \",function(){\r",
+							"    pm.response.to.be.ok\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}api/v2/customers?id={{id}}",
+					"host": [
+						"{{baseURL}}api"
+					],
+					"path": [
+						"v2",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check the status code to be 200\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"test status is OK \",function(){\r",
+							"    pm.response.to.be.ok\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}api/v2/customers/{{id}}",
+					"host": [
+						"{{baseURL}}api"
+					],
+					"path": [
+						"v2",
+						"customers",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Deleted Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check the status code to be 200\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"test status is OK \",function(){\r",
+							"    pm.response.to.be.ok\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}api/v2/customers?id={{id}}",
+					"host": [
+						"{{baseURL}}api"
+					],
+					"path": [
+						"v2",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "https://654a98131f197d51e4927399.mockapi.io/"
+		},
+		{
+			"key": "id",
+			"value": "17",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"id": "7028e387-7c04-4d0b-8fd6-0f1403248671",
+	"values": [
+		{
+			"key": "BaseURL",
+			"value": "https://fakerestapi.azurewebsites.net",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "baseURL",
+			"value": "https://654a98131f197d51e4927399.mockapi.io/",
+			"enabled": true
+		},
+		{
+			"key": "id",
+			"value": "17",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2023-11-10T11:28:17.403Z",
+	"_postman_exported_using": "Postman/10.20.0"
+}
